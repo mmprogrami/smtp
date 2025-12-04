@@ -1,7 +1,9 @@
-FROM debian:trixie-slim
+ARG DEBIAN_TAG=trixie-slim
+
+FROM debian:${DEBIAN_TAG}
 
 # Install exim4
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 RUN set -ex; \
     apt-get update; \
     apt-get install -y exim4-daemon-light; \
